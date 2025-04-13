@@ -98,7 +98,7 @@ function replaceDummyData(
   temperature.innerHTML = actualTemperature + "°C";
   weatherDescription.innerHTML = actualWeatherDescription;
   humidity.innerHTML = actualHumidity + "%";
-  wind.innerHTML = actualWindSpeed;
+  wind.innerHTML = actualWindSpeed + " km/h";
 }
 
 function wmoCodeInterpretation(wmoCode) {
@@ -182,7 +182,14 @@ function wmoCodeInterpretation(wmoCode) {
 darkModeBtn.addEventListener("click", (e) => {
   console.log("click");
   e.preventDefault();
-  document.body.classList.toggle("dark-mode");
+  darkMode();
 });
+
+function darkMode() {
+  document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    darkModeBtn.innerHTML = "Light Mode";
+  } else darkModeBtn.innerHTML = "Dark Mode";
+}
 
 // getWeather();

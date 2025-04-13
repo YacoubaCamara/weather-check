@@ -112,6 +112,7 @@ footer {
   width: 100%;
   max-width: 500px;
   margin-bottom: 15px;
+  position: relative;
 }
 
 .details {
@@ -155,7 +156,6 @@ footer {
   border-radius: 40px;
   background: #f6f6f6;
   margin: 0 auto;
-  position: relative;
 }
 
 .search-input {
