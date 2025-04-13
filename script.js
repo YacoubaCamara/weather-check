@@ -45,6 +45,7 @@ async function getCity(cityName) {
       (await weather).humidity,
       (await weather).wind
     );
+    document.querySelector(".template").classList.remove("hidden");
   } catch (error) {
     console.error(error.message);
   }
