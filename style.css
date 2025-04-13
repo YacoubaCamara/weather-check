@@ -1,7 +1,11 @@
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Lexend", sans-serif;
 }
 
 .logo-img {
@@ -9,12 +13,17 @@
   height: 50px;
 }
 
+/* Navbar */
 .navbar ul {
   list-style-type: none;
   background-color: aqua;
-  padding: 0px;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+}
+
+.navbar li {
+  float: left;
 }
 
 .navbar a,
@@ -27,7 +36,6 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-family: inherit;
   font-size: inherit;
 }
 
@@ -36,66 +44,88 @@
   background-color: rgb(12, 154, 154);
 }
 
-.navbar li {
-  float: left;
-}
-
+/* Images */
 .humidity-img,
 .wind-img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .temperature-img {
-  width: 250px;
-  height: 250px;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
   object-fit: contain;
 }
 
+/* Layout */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60vw;
+  width: 90vw;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 header {
   width: 100%;
-  height: 15vh;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 main {
   width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 30px 0;
-  gap: 40px;
+  padding: 30px 15px;
+  gap: 30px;
 }
 
+footer {
+  background-color: rgb(12, 154, 154);
+  width: 100%;
+  height: 15vh;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Weather Card */
 .template {
   display: flex;
-  border: 5px solid rgb(12, 154, 154);
-  border-radius: 10%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 5px solid rgb(12, 154, 154);
+  border-radius: 20px;
   gap: 18px;
-  margin-bottom: 15px;
-  margin-right: 45px;
-  max-width: 500px;
-  width: 100%;
   padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 15px;
 }
 
 .details {
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: space-between;
   padding: 0 25px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.details-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .temperature-div {
@@ -113,54 +143,30 @@ main {
   gap: 10px;
 }
 
-.details-text {
-  display: flex;
-  flex-direction: column;
-}
-
-footer {
-  background-color: rgb(12, 154, 154);
-  width: 100%;
-  height: 15vh;
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 50px;
-}
-
-.setting-icon,
-.search-icon {
-  list-style: none;
-}
-
+/* Search Bar */
 .search {
   --padding: 24px;
   width: 100%;
   max-width: 400px;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   padding: 12px 16px;
   border-radius: 40px;
   background: #f6f6f6;
   margin: 0 auto;
+  position: relative;
 }
 
 .search-input {
   font-size: 16px;
   font-family: "Lexend", sans-serif;
-  color: #333333;
+  color: #333;
   margin-left: var(--padding);
   outline: none;
   border: none;
   background: transparent;
+  width: 100%;
 }
 
 .search-input::placeholder,
@@ -168,29 +174,7 @@ header {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.dark-mode-btn {
-  border: none;
-  width: 13%;
-  padding: 10px;
-  height: 3vw;
-  border-radius: 15%;
-}
-
-.dark-mode-btn:hover {
-  background-color: #e8e7e7;
-  cursor: pointer;
-}
-
-.dark-mode {
-  background-color: black;
-  color: white;
-}
-
-#search-container {
-  margin-top: 80px;
-  margin-bottom: 40px;
-}
-
+/* Input */
 #city-input {
   padding: 12px 16px;
   width: 250px;
@@ -205,8 +189,27 @@ header {
   outline: none;
 }
 
+/* Dark Mode Button */
+.dark-mode-btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #f0f0f0;
+  transition: background 0.3s ease;
+}
+
+.dark-mode-btn:hover {
+  background-color: #e8e7e7;
+  cursor: pointer;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
 #weather-container {
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 12px;
   padding: 30px;
   margin: 0 auto;
@@ -214,6 +217,48 @@ header {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Hide elements */
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 834px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .search {
+    max-width: 100%;
+    right: 0;
+    padding: 10px 14px;
+  }
+
+  .template {
+    width: 100%;
+    margin: 20px auto 0;
+    padding: 20px;
+  }
+
+  .details {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .dark-mode-btn {
+    width: 30%;
+  }
+
+  .humidity-img,
+  .wind-img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .temperature-img {
+    max-width: 200px;
+  }
 }

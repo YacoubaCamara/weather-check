@@ -97,7 +97,7 @@ function replaceDummyData(
   illustrativeImage.src = `./img/imgCode/${imgCode}.png`;
   temperature.innerHTML = actualTemperature + "°C";
   weatherDescription.innerHTML = actualWeatherDescription;
-  humidity = actualHumidity;
+  humidity.innerHTML = actualHumidity + "%";
   wind.innerHTML = actualWindSpeed;
 }
 
