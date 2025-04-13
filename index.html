@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/d77e235c1d.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Weather Check</title>
   </head>
   <body>
@@ -15,14 +19,27 @@
         <nav class="navbar">
           <ul>
             <li><a href="#">Weather</a></li>
-            <li><a href="#">Search Bar</a></li>
-            <li><a href="#">Settings</a></li>
+            <li class="setting-icon">
+              <a href="#"><i class="fa-solid fa-gear"></i></a>
+            </li>
           </ul>
         </nav>
       </header>
       <main>
         <!--City name and country-->
         <div class="template">
+          <!--Search bar display when user clicks search icon-->
+          <form action="script.js">
+            <div class="search">
+              <i class="search-input-icon fa-solid fa-magnifying-glass"></i>
+              <input
+                class="search-input"
+                type="search"
+                name="user-search"
+                placeholder="Enter city name "
+              />
+            </div>
+          </form>
           <h3 class="location">Bamako, MLI</h3>
           <!--Temperature illustration-->
           <div class="temperature-illustration">
@@ -33,8 +50,8 @@
             />
           </div>
           <!--Temperature either in farhenheit or celsius-->
-          <div class="temperature">
-            <p>18 C</p>
+          <div class="temperature-div">
+            <p class="temperature">18 C</p>
             <!--Temperature description-->
             <p>A little bit rainy</p>
           </div>
@@ -66,8 +83,11 @@
         <a href="#">
           <img class="logo-img" src="./img/logo.svg" alt="website logo" />
         </a>
-        <li><a href="#">Settings</a></li>
+        <li class="setting-icon">
+          <a href="#"><i class="fa-solid fa-gear"></i></a>
+        </li>
       </footer>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>

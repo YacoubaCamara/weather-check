@@ -3,6 +3,7 @@
   padding: 0px;
   box-sizing: border-box;
 }
+
 .logo-img {
   width: 50px;
   height: 50px;
@@ -15,16 +16,26 @@
   margin: 0px;
   overflow: hidden;
 }
-.navbar a {
+
+.navbar a,
+.navbar button {
   color: white;
   text-decoration: none;
   padding: 15px;
   display: block;
   text-align: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
 }
-.navbar a:hover {
+
+.navbar a:hover,
+.navbar button:hover {
   background-color: rgb(12, 154, 154);
 }
+
 .navbar li {
   float: left;
 }
@@ -42,44 +53,50 @@
 }
 
 .container {
-  /* border: 8px solid black; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90vw;
+  width: 60vw;
   margin: 0 auto;
 }
 
 header {
   width: 100%;
   height: 15vh;
-  background-color: blue;
 }
 
 main {
-  background-color: red;
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
 }
 
 .template {
   display: flex;
-  background-color: green;
+  border: 5px solid rgb(12, 154, 154);
+  border-radius: 10%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50%;
   gap: 18px;
+  margin-bottom: 15px;
 }
 
 .details {
-  background-color: yellow;
   display: flex;
   width: 80%;
   justify-content: space-between;
   padding: 0 25px;
+}
+
+.temperature-div {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  text-align: center;
+  padding: 10px;
 }
 
 .humidity-div,
@@ -89,10 +106,16 @@ main {
   gap: 10px;
 }
 
+.details-text {
+  display: flex;
+  flex-direction: column;
+}
+
 footer {
-  background-color: orange;
+  background-color: rgb(12, 154, 154);
   width: 100%;
   height: 15vh;
+  margin-top: 15px;
 }
 
 header,
@@ -101,4 +124,35 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
+}
+
+.setting-icon,
+.search-icon {
+  list-style: none;
+}
+
+.search {
+  --padding: 24px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  padding: var(--padding);
+  border-radius: 40px;
+  background: #f6f6f6;
+  margin: 20px auto;
+}
+
+.search-input {
+  font-size: 16px;
+  font-family: "Lexend", sans-serif;
+  color: #333333;
+  margin-left: var(--padding);
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+.search-input::placeholder,
+.search-input-icon {
+  color: rgba(0, 0, 0, 0.5);
 }
