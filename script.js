@@ -4,6 +4,7 @@ let temperature = document.querySelector(".temperature");
 let weatherDescription = document.querySelector(".weather-description");
 let humidity = document.querySelector(".humidity");
 let wind = document.querySelector(".wind");
+const darkModeBtn = document.querySelector(".dark-mode-btn");
 
 let value = ""; // Global variable to store value
 
@@ -22,7 +23,6 @@ document
 function handleSearch(city) {
   console.log("Handling search for:", city);
   getCity(city);
-  // Do something with the search term
 }
 
 async function getCity(cityName) {
@@ -32,27 +32,11 @@ async function getCity(cityName) {
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
-
     const json = await response.json();
-    // console.log(json);
     const city = json.results[0].name;
     const cityLatitude = json.results[0].latitude;
     const cityLongitude = json.results[0].longitude;
     const weather = getWeather(cityLatitude, cityLongitude);
-    console.log(
-      "city",
-      city,
-      "img",
-      (await weather).imgCode,
-      "temperature",
-      (await weather).temperature,
-      "description",
-      (await weather).weatherDescription,
-      "humidity",
-      (await weather).humidity,
-      "wind",
-      (await weather).wind
-    );
     replaceDummyData(
       city,
       (await weather).imgCode,
@@ -61,13 +45,10 @@ async function getCity(cityName) {
       (await weather).humidity,
       (await weather).wind
     );
-    // console.log(city, cityLatitude, cityLongitude);
   } catch (error) {
     console.error(error.message);
   }
 }
-
-// getData();
 
 async function getWeather(latitude, longitude) {
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code&current=temperature_2m,relative_humidity_2m,wind_speed_10m`;
@@ -103,15 +84,6 @@ async function getWeather(latitude, longitude) {
   return { wmoCode, weatherDescription, imgCode, temperature, humidity, wind };
 }
 
-// function replaceDummyData(
-//   city, ✅
-//   wmoCode, ✅
-//   temperature,✅
-//   weatherDescription,✅
-//   humidity,✅
-//   wind✅
-// ) {}
-
 function replaceDummyData(
   city,
   imgCode,
@@ -122,7 +94,7 @@ function replaceDummyData(
 ) {
   citySelected.innerHTML = city;
   illustrativeImage.src = `./img/imgCode/${imgCode}.png`;
-  temperature.innerHTML = actualTemperature;
+  temperature.innerHTML = actualTemperature + "°C";
   weatherDescription.innerHTML = actualWeatherDescription;
   humidity = actualHumidity;
   wind.innerHTML = actualWindSpeed;
@@ -205,5 +177,11 @@ function wmoCodeInterpretation(wmoCode) {
   }
   return { description, imgCode };
 }
+
+darkModeBtn.addEventListener("click", (e) => {
+  console.log("click");
+  e.preventDefault();
+  document.body.classList.toggle("dark-mode");
+});
 
 // getWeather();
